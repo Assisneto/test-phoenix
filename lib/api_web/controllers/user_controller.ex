@@ -2,9 +2,9 @@ defmodule ApiWeb.UserController do
   use ApiWeb, :controller
 
   def signup(conn, %{"user" => user}) do
-    IO.inspect conn
-    IO.puts "*****"
-    IO.inspect user
+    conn
+      |> put_status(:created)
+      |> render("user.json", %{user: user})
   end
 
 end
